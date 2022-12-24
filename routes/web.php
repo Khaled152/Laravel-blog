@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('/admin', [postController::class, 'index'])->name('post.index');
 Route::get('/admin/create', [postController::class,'create'])->name('post.create');
+Route::get('/admin', [postController::class,'store'])->name('post.store');
 Route::get('/admin/{post}', [postController::class, 'show'])->name('show.post');
 
 

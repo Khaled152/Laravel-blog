@@ -9,16 +9,16 @@
   
   </div>
 </div>
-<form>
+<form method="POST" action="{{route('post.store')}}">
     <fieldset >
      
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">title</label>
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        <input type="text" id="disabledTextInput" name="title" class="form-control" placeholder="Disabled input">
       </div>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">description</label>
-        <textarea type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input"></textarea>
+        <textarea type="text" id="disabledTextInput" name="description" class="form-control" placeholder="Disabled input"></textarea>
       </div>
       
       <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,16 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class postController extends Controller
 {
     public function index(){
-       $posts=[
-       ['id'=>1,'title'=>'java','descrption'=>'this first post','posted_by'=>'khaled','created_by'=>'2022-10-13'],
-       ['id'=>2,'title'=>'laravle','descrption'=>'this sceonde post','posted_by'=>'youssef','created_by'=>'2022-10-13']
-    ];
+       $posts=Post::all();
       return view('admin.admin',[
         'posts'=>$posts
     ]);
@@ -19,16 +16,26 @@ class postController extends Controller
    
 
     public function show($post){
-        $post=  ['id'=>1,'title'=>'java','descrption'=>'this first post','posted_by'=>'khaled','created_by'=>'2022-10-13'];
-
+        $post=  Post::find($post);
      
        return view('admin.show-posts',[
          'post'=>$post
      ]);
+
      }
+
+
+
      public function create(){
       
         return view('admin.create-posts');
       }
+       
+     public function store(){
+      $requestData = request();
+        return redirect()->route('post.index');
+      }
   
+
+     
 }
